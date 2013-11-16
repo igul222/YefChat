@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "Snap.h"
 #import "SnapchatClient.h"
+#import "SVProgressHUD.h"
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -31,9 +32,10 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
+    [SVProgressHUD showWithStatus:@"Fetching"];
     if (self.detailItem) {
         [[SnapchatClient sharedClient] getMediaForSnap:self.detailItem callback:^(NSData *snap) {
+            [SVProgressHUD showSuccessWithStatus:@"Done!"];
             // we have data
             UIImage *image = [UIImage imageWithData:snap];
             UIImageView *iview = [[UIImageView alloc] initWithFrame:self.view.bounds];

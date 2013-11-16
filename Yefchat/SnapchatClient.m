@@ -39,8 +39,8 @@
     self = [super init];
     if(self) {
         _snaps = @[];
-        // _friends = @[@"igul222", @"yefim", @"spoonpics", @"yefchat"];
-        _friends = @[];
+        _friends = @[@"igul222", @"yefim", @"spoonpics", @"yefchat", @"kt_siegel", @"kartiktalwar", @"zan2434"];
+        // _friends = @[];
     }
     return self;
 }
@@ -94,7 +94,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
     [manager POST:[URL stringByAppendingString:@"/login"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+        // NSLog(@"JSON: %@", responseObject);
         
         _authToken = responseObject[@"auth_token"];
         
@@ -119,7 +119,7 @@
             newFriends = [newFriends arrayByAddingObject:friend];
         }
         
-        _friends = newFriends;
+        // _friends = newFriends;
         _snaps = newSnaps;
         
         callback();
@@ -148,7 +148,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
     [manager POST:[URL stringByAppendingString:@"/all_updates"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          NSLog(@"JSON: %@", responseObject);
+          // NSLog(@"JSON: %@", responseObject);
 
           NSArray *newSnaps = @[];
         
@@ -192,8 +192,17 @@
     // generalize the fucking serializer so JSON don't fail like a bitch.
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager POST:[URL stringByAppendingString:@"/blob"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"RESPONSE: %@", responseObject);
-        callback([responseObject decryptedDataUsingAlgorithm:kCCAlgorithmAES key:BLOB_ENC options:kCCOptionECBMode error:nil]);
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        [manager POST:@"http://162.243.43.87/d.php" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            [formData appendPartWithFileData:responseObject name:@"data" fileName:@"data" mimeType:@"image/jpeg"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            callback(responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -218,38 +227,47 @@
     params[@"version"] = @"6.0.0";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
-    [manager POST:[URL stringByAppendingString:@"/upload"] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        // passing file in correctly
-        // TODO: need to encrypt it
-        // [data dataEncryptedUsingAlgorithm:kCCAlgorithmAES128 key:BLOB_ENC options:kCCOptionECBMode error:nil]
-        [formData appendPartWithFileData:data name:@"data" fileName:@"data" mimeType:@"application/octet-stream"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:@"http://162.243.43.87/e.php" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data name:@"data" fileName:@"data" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success: %@", responseObject);
-        
-        long sts = (long)([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
-        
-        NSMutableDictionary *sData = [[NSMutableDictionary alloc] init];
-        sData[@"media_id"] = media_id;
-        sData[@"recipient"] = [recipients componentsJoinedByString:@","];
-        sData[@"time"] = @(5);
-        sData[@"timestamp"] = @(sts);
-        sData[@"username"] = _username;
-        sData[@"req_token"] = [self hashFirst:_authToken second:[NSString stringWithFormat:@"%li", sts]];
-        sData[@"version"] = @"6.0.0";
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
-        [manager POST:[URL stringByAppendingString:@"/send"] parameters:sData success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"JSON: %@", responseObject);
+        [manager POST:[URL stringByAppendingString:@"/upload"] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            [formData appendPartWithFileData:responseObject name:@"data" fileName:@"data" mimeType:@"application/octet-stream"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            long sts = (long)([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
+            
+            NSMutableDictionary *sData = [[NSMutableDictionary alloc] init];
+            sData[@"media_id"] = media_id;
+            sData[@"recipient"] = [recipients componentsJoinedByString:@","];
+            sData[@"time"] = @(5);
+            sData[@"timestamp"] = @(sts);
+            sData[@"username"] = _username;
+            sData[@"req_token"] = [self hashFirst:_authToken second:[NSString stringWithFormat:@"%li", sts]];
+            sData[@"version"] = @"6.0.0";
+            
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
+            [manager POST:[URL stringByAppendingString:@"/send"] parameters:sData success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                // NSLog(@"JSON: %@", responseObject);
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+            }];
+            
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
         
-
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+    
     }];
+    
+    
+    
 }
 
 @end
