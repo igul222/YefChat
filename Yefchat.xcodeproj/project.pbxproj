@@ -25,6 +25,20 @@
 		4C280B5E1836FF3F002361BF /* SnapchatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B5D1836FF3F002361BF /* SnapchatClient.m */; };
 		4C280B6118370611002361BF /* Snap.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B6018370611002361BF /* Snap.m */; };
 		4C280B6418372A34002361BF /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B6318372A34002361BF /* FriendsPickerViewController.m */; };
+		6F9A495518376C8B00A7B08A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494318376C8B00A7B08A /* AFHTTPRequestOperation.m */; };
+		6F9A495618376C8B00A7B08A /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494518376C8B00A7B08A /* AFHTTPRequestOperationManager.m */; };
+		6F9A495718376C8B00A7B08A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494718376C8B00A7B08A /* AFHTTPSessionManager.m */; };
+		6F9A495818376C8B00A7B08A /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494A18376C8B00A7B08A /* AFNetworkReachabilityManager.m */; };
+		6F9A495918376C8B00A7B08A /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494C18376C8B00A7B08A /* AFSecurityPolicy.m */; };
+		6F9A495A18376C8B00A7B08A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494E18376C8B00A7B08A /* AFURLConnectionOperation.m */; };
+		6F9A495B18376C8B00A7B08A /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A495018376C8B00A7B08A /* AFURLRequestSerialization.m */; };
+		6F9A495C18376C8B00A7B08A /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A495218376C8B00A7B08A /* AFURLResponseSerialization.m */; };
+		6F9A495D18376C8B00A7B08A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A495418376C8B00A7B08A /* AFURLSessionManager.m */; };
+		6F9A495F18376C9800A7B08A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A495E18376C9800A7B08A /* CFNetwork.framework */; };
+		6F9A496118376CBB00A7B08A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496018376CBB00A7B08A /* CoreFoundation.framework */; };
+		6F9A496318376CC100A7B08A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496218376CC100A7B08A /* Security.framework */; };
+		6F9A496518376CC900A7B08A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496418376CC900A7B08A /* MobileCoreServices.framework */; };
+		6F9A496718376CD400A7B08A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496618376CD400A7B08A /* libicucore.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +79,31 @@
 		4C280B6018370611002361BF /* Snap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snap.m; sourceTree = "<group>"; };
 		4C280B6218372A34002361BF /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPickerViewController.h; sourceTree = "<group>"; };
 		4C280B6318372A34002361BF /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
+		6F9A494018376C5200A7B08A /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		6F9A494218376C8B00A7B08A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		6F9A494318376C8B00A7B08A /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		6F9A494418376C8B00A7B08A /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		6F9A494518376C8B00A7B08A /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		6F9A494618376C8B00A7B08A /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		6F9A494718376C8B00A7B08A /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		6F9A494818376C8B00A7B08A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		6F9A494918376C8B00A7B08A /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		6F9A494A18376C8B00A7B08A /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		6F9A494B18376C8B00A7B08A /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		6F9A494C18376C8B00A7B08A /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		6F9A494D18376C8B00A7B08A /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		6F9A494E18376C8B00A7B08A /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		6F9A494F18376C8B00A7B08A /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		6F9A495018376C8B00A7B08A /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		6F9A495118376C8B00A7B08A /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		6F9A495218376C8B00A7B08A /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		6F9A495318376C8B00A7B08A /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		6F9A495418376C8B00A7B08A /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		6F9A495E18376C9800A7B08A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6F9A496018376CBB00A7B08A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		6F9A496218376CC100A7B08A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6F9A496418376CC900A7B08A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6F9A496618376CD400A7B08A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +111,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F9A496718376CD400A7B08A /* libicucore.dylib in Frameworks */,
+				6F9A496518376CC900A7B08A /* MobileCoreServices.framework in Frameworks */,
+				6F9A496318376CC100A7B08A /* Security.framework in Frameworks */,
+				6F9A496118376CBB00A7B08A /* CoreFoundation.framework in Frameworks */,
+				6F9A495F18376C9800A7B08A /* CFNetwork.framework in Frameworks */,
 				4C280B271836FEEF002361BF /* CoreGraphics.framework in Frameworks */,
 				4C280B291836FEEF002361BF /* UIKit.framework in Frameworks */,
 				4C280B251836FEEF002361BF /* Foundation.framework in Frameworks */,
@@ -113,6 +157,12 @@
 		4C280B231836FEEF002361BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F9A496618376CD400A7B08A /* libicucore.dylib */,
+				6F9A496418376CC900A7B08A /* MobileCoreServices.framework */,
+				6F9A496218376CC100A7B08A /* Security.framework */,
+				6F9A496018376CBB00A7B08A /* CoreFoundation.framework */,
+				6F9A495E18376C9800A7B08A /* CFNetwork.framework */,
+				6F9A494018376C5200A7B08A /* libcommonCrypto.dylib */,
 				4C280B241836FEEF002361BF /* Foundation.framework */,
 				4C280B261836FEEF002361BF /* CoreGraphics.framework */,
 				4C280B281836FEEF002361BF /* UIKit.framework */,
@@ -139,6 +189,25 @@
 				4C280B5D1836FF3F002361BF /* SnapchatClient.m */,
 				4C280B5F18370611002361BF /* Snap.h */,
 				4C280B6018370611002361BF /* Snap.m */,
+				6F9A494218376C8B00A7B08A /* AFHTTPRequestOperation.h */,
+				6F9A494318376C8B00A7B08A /* AFHTTPRequestOperation.m */,
+				6F9A494418376C8B00A7B08A /* AFHTTPRequestOperationManager.h */,
+				6F9A494518376C8B00A7B08A /* AFHTTPRequestOperationManager.m */,
+				6F9A494618376C8B00A7B08A /* AFHTTPSessionManager.h */,
+				6F9A494718376C8B00A7B08A /* AFHTTPSessionManager.m */,
+				6F9A494818376C8B00A7B08A /* AFNetworking.h */,
+				6F9A494918376C8B00A7B08A /* AFNetworkReachabilityManager.h */,
+				6F9A494A18376C8B00A7B08A /* AFNetworkReachabilityManager.m */,
+				6F9A494B18376C8B00A7B08A /* AFSecurityPolicy.h */,
+				6F9A494C18376C8B00A7B08A /* AFSecurityPolicy.m */,
+				6F9A494D18376C8B00A7B08A /* AFURLConnectionOperation.h */,
+				6F9A494E18376C8B00A7B08A /* AFURLConnectionOperation.m */,
+				6F9A494F18376C8B00A7B08A /* AFURLRequestSerialization.h */,
+				6F9A495018376C8B00A7B08A /* AFURLRequestSerialization.m */,
+				6F9A495118376C8B00A7B08A /* AFURLResponseSerialization.h */,
+				6F9A495218376C8B00A7B08A /* AFURLResponseSerialization.m */,
+				6F9A495318376C8B00A7B08A /* AFURLSessionManager.h */,
+				6F9A495418376C8B00A7B08A /* AFURLSessionManager.m */,
 			);
 			path = Yefchat;
 			sourceTree = "<group>";
@@ -269,13 +338,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F9A495A18376C8B00A7B08A /* AFURLConnectionOperation.m in Sources */,
 				4C280B5E1836FF3F002361BF /* SnapchatClient.m in Sources */,
 				4C280B351836FEEF002361BF /* AppDelegate.m in Sources */,
 				4C280B3B1836FEEF002361BF /* MasterViewController.m in Sources */,
+				6F9A495C18376C8B00A7B08A /* AFURLResponseSerialization.m in Sources */,
 				4C280B6118370611002361BF /* Snap.m in Sources */,
+				6F9A495B18376C8B00A7B08A /* AFURLRequestSerialization.m in Sources */,
+				6F9A495918376C8B00A7B08A /* AFSecurityPolicy.m in Sources */,
+				6F9A495518376C8B00A7B08A /* AFHTTPRequestOperation.m in Sources */,
+				6F9A495D18376C8B00A7B08A /* AFURLSessionManager.m in Sources */,
 				4C280B6418372A34002361BF /* FriendsPickerViewController.m in Sources */,
 				4C280B311836FEEF002361BF /* main.m in Sources */,
+				6F9A495718376C8B00A7B08A /* AFHTTPSessionManager.m in Sources */,
 				4C280B3E1836FEEF002361BF /* DetailViewController.m in Sources */,
+				6F9A495818376C8B00A7B08A /* AFNetworkReachabilityManager.m in Sources */,
+				6F9A495618376C8B00A7B08A /* AFHTTPRequestOperationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +483,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Yefchat/Yefchat-Prefix.pch";
 				INFOPLIST_FILE = "Yefchat/Yefchat-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -418,6 +500,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Yefchat/Yefchat-Prefix.pch";
 				INFOPLIST_FILE = "Yefchat/Yefchat-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -484,6 +570,7 @@
 				4C280B581836FEEF002361BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C280B591836FEEF002361BF /* Build configuration list for PBXNativeTarget "YefchatTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +579,7 @@
 				4C280B5B1836FEEF002361BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
