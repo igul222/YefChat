@@ -8,6 +8,7 @@
 
 #import "SnapchatClient.h"
 #import "Snap.h"
+#import "NSData+CommonCrypto.h"
 #include <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
 #include "AFHTTPRequestOperationManager.h"
@@ -16,6 +17,8 @@
 #define PATTERN @"0001110111101110001111010101111011010001001110011000110001000110"
 #define STATIC_TOKEN @"m198sOkJEn37DjqZ32lpRu76xmw288xSQ9"
 #define URL @"https://feelinsonice--hrd-appspot-com-sfa0vorks4ru.runscope.net/bq"
+#define BLOB_ENC @"M02cnQ51Ji97vwT4"
+#define USER_AGENT @"Apple-iPhone5C1/1001.525"
 // #define URL @"https://feelinsonice-hrd.appspot.com/bq"
 
 @implementation SnapchatClient
@@ -89,6 +92,7 @@
     data[@"version"] = @"6.0.0";
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
     [manager POST:[URL stringByAppendingString:@"/login"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
@@ -142,6 +146,7 @@
     data[@"username"] = _username;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
     [manager POST:[URL stringByAppendingString:@"/all_updates"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
           NSLog(@"JSON: %@", responseObject);
 
@@ -180,10 +185,15 @@
     data[@"version"] = @"6.0.0";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:[URL stringByAppendingString:@"/upload"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+    [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
+    // generalize the fucking serializer so JSON don't fail like a bitch.
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:[URL stringByAppendingString:@"/blob"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"RESPONSE: %@", responseObject);
         
-        callback([NSData data]);
+        callback([responseObject decryptedAES256DataUsingKey:BLOB_ENC error:nil]);
+        
+        // callback([NSData data]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -197,7 +207,7 @@
     
     long ts = (long)([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
     NSString *req_token = [self hashFirst:_authToken second:[NSString stringWithFormat:@"%li", ts]];
-    NSString *media_id = [[_username uppercaseString] stringByAppendingFormat:@"%li", ts/1000];
+    NSString *media_id = [[_username uppercaseString] stringByAppendingFormat:@"~%li", ts/1000];
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     params[@"timestamp"] = @(ts);
@@ -208,11 +218,12 @@
     params[@"version"] = @"6.0.0";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    // NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
+    [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
     [manager POST:[URL stringByAppendingString:@"/upload"] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         // passing file in correctly
         // TODO: need to encrypt it
-        [formData appendPartWithFileData:data name:@"data" fileName:@"data" mimeType:@"image/jpeg"];
+        // [data dataEncryptedUsingAlgorithm:kCCAlgorithmAES128 key:BLOB_ENC options:kCCOptionECBMode error:nil]
+        [formData appendPartWithFileData:data name:@"data" fileName:@"data" mimeType:@"application/octet-stream"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
         
@@ -228,6 +239,7 @@
         sData[@"version"] = @"6.0.0";
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
         [manager POST:[URL stringByAppendingString:@"/send"] parameters:sData success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"JSON: %@", responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

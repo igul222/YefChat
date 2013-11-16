@@ -25,6 +25,9 @@
 		4C280B5E1836FF3F002361BF /* SnapchatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B5D1836FF3F002361BF /* SnapchatClient.m */; };
 		4C280B6118370611002361BF /* Snap.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B6018370611002361BF /* Snap.m */; };
 		4C280B6418372A34002361BF /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B6318372A34002361BF /* FriendsPickerViewController.m */; };
+		4C280B66183771F8002361BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B65183771F8002361BF /* QuartzCore.framework */; };
+		4C280B6A1837720F002361BF /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C280B671837720F002361BF /* SVProgressHUD.bundle */; };
+		4C280B6B1837720F002361BF /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B691837720F002361BF /* SVProgressHUD.m */; };
 		6F9A495518376C8B00A7B08A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494318376C8B00A7B08A /* AFHTTPRequestOperation.m */; };
 		6F9A495618376C8B00A7B08A /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494518376C8B00A7B08A /* AFHTTPRequestOperationManager.m */; };
 		6F9A495718376C8B00A7B08A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A494718376C8B00A7B08A /* AFHTTPSessionManager.m */; };
@@ -39,9 +42,12 @@
 		6F9A496318376CC100A7B08A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496218376CC100A7B08A /* Security.framework */; };
 		6F9A496518376CC900A7B08A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496418376CC900A7B08A /* MobileCoreServices.framework */; };
 		6F9A496718376CD400A7B08A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496618376CD400A7B08A /* libicucore.dylib */; };
-		4C280B66183771F8002361BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B65183771F8002361BF /* QuartzCore.framework */; };
-		4C280B6A1837720F002361BF /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C280B671837720F002361BF /* SVProgressHUD.bundle */; };
-		4C280B6B1837720F002361BF /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B691837720F002361BF /* SVProgressHUD.m */; };
+		6FCD12791837ABF7007DA515 /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD12701837ABF7007DA515 /* AESCrypt.m */; };
+		6FCD127A1837ABF7007DA515 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6FCD12711837ABF7007DA515 /* LICENSE */; };
+		6FCD127B1837ABF7007DA515 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD12731837ABF7007DA515 /* NSData+Base64.m */; };
+		6FCD127C1837ABF7007DA515 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD12751837ABF7007DA515 /* NSData+CommonCrypto.m */; };
+		6FCD127D1837ABF7007DA515 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD12771837ABF7007DA515 /* NSString+Base64.m */; };
+		6FCD127E1837ABF7007DA515 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6FCD12781837ABF7007DA515 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +88,10 @@
 		4C280B6018370611002361BF /* Snap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snap.m; sourceTree = "<group>"; };
 		4C280B6218372A34002361BF /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPickerViewController.h; sourceTree = "<group>"; };
 		4C280B6318372A34002361BF /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
+		4C280B65183771F8002361BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4C280B671837720F002361BF /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		4C280B681837720F002361BF /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		4C280B691837720F002361BF /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		6F9A494018376C5200A7B08A /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		6F9A494218376C8B00A7B08A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		6F9A494318376C8B00A7B08A /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -107,10 +117,16 @@
 		6F9A496218376CC100A7B08A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6F9A496418376CC900A7B08A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6F9A496618376CD400A7B08A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		4C280B65183771F8002361BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		4C280B671837720F002361BF /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		4C280B681837720F002361BF /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		4C280B691837720F002361BF /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		6FCD126F1837ABF7007DA515 /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
+		6FCD12701837ABF7007DA515 /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
+		6FCD12711837ABF7007DA515 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6FCD12721837ABF7007DA515 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		6FCD12731837ABF7007DA515 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		6FCD12741837ABF7007DA515 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		6FCD12751837ABF7007DA515 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
+		6FCD12761837ABF7007DA515 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		6FCD12771837ABF7007DA515 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		6FCD12781837ABF7007DA515 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +222,16 @@
 				6F9A494418376C8B00A7B08A /* AFHTTPRequestOperationManager.h */,
 				6F9A494518376C8B00A7B08A /* AFHTTPRequestOperationManager.m */,
 				6F9A494618376C8B00A7B08A /* AFHTTPSessionManager.h */,
+				6FCD126F1837ABF7007DA515 /* AESCrypt.h */,
+				6FCD12701837ABF7007DA515 /* AESCrypt.m */,
+				6FCD12711837ABF7007DA515 /* LICENSE */,
+				6FCD12721837ABF7007DA515 /* NSData+Base64.h */,
+				6FCD12731837ABF7007DA515 /* NSData+Base64.m */,
+				6FCD12741837ABF7007DA515 /* NSData+CommonCrypto.h */,
+				6FCD12751837ABF7007DA515 /* NSData+CommonCrypto.m */,
+				6FCD12761837ABF7007DA515 /* NSString+Base64.h */,
+				6FCD12771837ABF7007DA515 /* NSString+Base64.m */,
+				6FCD12781837ABF7007DA515 /* README.md */,
 				6F9A494718376C8B00A7B08A /* AFHTTPSessionManager.m */,
 				6F9A494818376C8B00A7B08A /* AFNetworking.h */,
 				6F9A494918376C8B00A7B08A /* AFNetworkReachabilityManager.h */,
@@ -329,10 +355,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FCD127E1837ABF7007DA515 /* README.md in Resources */,
 				4C280B401836FEEF002361BF /* Images.xcassets in Resources */,
 				4C280B2F1836FEEF002361BF /* InfoPlist.strings in Resources */,
 				4C280B381836FEEF002361BF /* Main.storyboard in Resources */,
 				4C280B6A1837720F002361BF /* SVProgressHUD.bundle in Resources */,
+				6FCD127A1837ABF7007DA515 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,22 +379,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FCD127B1837ABF7007DA515 /* NSData+Base64.m in Sources */,
 				6F9A495A18376C8B00A7B08A /* AFURLConnectionOperation.m in Sources */,
 				4C280B5E1836FF3F002361BF /* SnapchatClient.m in Sources */,
 				4C280B6B1837720F002361BF /* SVProgressHUD.m in Sources */,
 				4C280B351836FEEF002361BF /* AppDelegate.m in Sources */,
 				4C280B3B1836FEEF002361BF /* MasterViewController.m in Sources */,
+				6FCD127D1837ABF7007DA515 /* NSString+Base64.m in Sources */,
 				6F9A495C18376C8B00A7B08A /* AFURLResponseSerialization.m in Sources */,
 				4C280B6118370611002361BF /* Snap.m in Sources */,
 				6F9A495B18376C8B00A7B08A /* AFURLRequestSerialization.m in Sources */,
 				6F9A495918376C8B00A7B08A /* AFSecurityPolicy.m in Sources */,
 				6F9A495518376C8B00A7B08A /* AFHTTPRequestOperation.m in Sources */,
 				6F9A495D18376C8B00A7B08A /* AFURLSessionManager.m in Sources */,
+				6FCD127C1837ABF7007DA515 /* NSData+CommonCrypto.m in Sources */,
 				4C280B6418372A34002361BF /* FriendsPickerViewController.m in Sources */,
 				4C280B311836FEEF002361BF /* main.m in Sources */,
 				6F9A495718376C8B00A7B08A /* AFHTTPSessionManager.m in Sources */,
 				4C280B3E1836FEEF002361BF /* DetailViewController.m in Sources */,
 				6F9A495818376C8B00A7B08A /* AFNetworkReachabilityManager.m in Sources */,
+				6FCD12791837ABF7007DA515 /* AESCrypt.m in Sources */,
 				6F9A495618376C8B00A7B08A /* AFHTTPRequestOperationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
