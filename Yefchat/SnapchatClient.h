@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SnapchatClient : NSObject
+@interface SnapchatClient : NSObject{
+  NSString *_username;
+  NSString *_authToken;
+}
 
 @property(readonly) NSArray *snaps;
 @property(readonly) NSArray *friends;
