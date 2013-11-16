@@ -75,8 +75,6 @@
 -(void)startLoginWithUsername:(NSString *)username password:(NSString *)password callback:(void (^)(void))callback {
     _username = username;
 
-    [self hashFirst:@"" second:@""];
-
     double ts = ([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
 
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
@@ -86,13 +84,12 @@
     [data setObject:[self hashFirst:STATIC_TOKEN second:[NSString stringWithFormat:@"%f", ts]] forKey:@"req_token"];
     [data setObject:@"6.0.0" forKey:@"version"];
 
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
-
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:[URL stringByAppendingString:@"/login"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
           NSLog(@"JSON: %@", responseObject);
+
+          _authToken = @"";
+
           callback();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
           NSLog(@"Error: %@", error);
@@ -103,9 +100,37 @@
     Snap *snap = [[Snap alloc] init];
     snap.sender = @"John Appleseed";
     snap.timestamp = [[NSDate alloc] init];
+
+    double ts = ([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
+
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    [data setObject:[NSNumber numberWithDouble:ts] forKey:@"timestamp"];
+    [data setObject:[self hashFirst:_authToken second:[NSString stringWithFormat:@"%f", ts]] forKey:@"req_token"];
+    [data setObject:@"6.0.0" forKey@"version"];
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:[URL stringByAppendingString:@"/all_updates"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          NSLog(@"JSON: %@", responseObject);
+
+          NSArray *snapJsons = responseObject[@"updates_response"][@"snaps"];
+          for (int i = 0; i < snapJsons.length; i++) {
+              NSDictionary *snapJson = snapJsons[i];
+
+              Snap *snap = [[Snap alloc] init];
+              snap.sender = snapJson[@"rp"];
+              // snap.timestamp = 
+              snap.mediaId = snapJson[@"c_id"];
+
+              // add to dict
+
+          }
+
+          callback();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          NSLog(@"Error: %@", error);
+    }];
+
     _snaps = [_snaps arrayByAddingObject:snap];
-    
-    callback();
 }
 
 -(void)sendData:(NSData *)data toRecipients:(NSArray *)recipients isVideo:(BOOL)video callback:(void (^)(void))callback {
