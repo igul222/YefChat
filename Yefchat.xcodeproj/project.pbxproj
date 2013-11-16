@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C280B251836FEEF002361BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B241836FEEF002361BF /* Foundation.framework */; };
+		4C280B271836FEEF002361BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B261836FEEF002361BF /* CoreGraphics.framework */; };
+		4C280B291836FEEF002361BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B281836FEEF002361BF /* UIKit.framework */; };
+		4C280B2F1836FEEF002361BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C280B2D1836FEEF002361BF /* InfoPlist.strings */; };
+		4C280B311836FEEF002361BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B301836FEEF002361BF /* main.m */; };
+		4C280B351836FEEF002361BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B341836FEEF002361BF /* AppDelegate.m */; };
+		4C280B381836FEEF002361BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C280B361836FEEF002361BF /* Main.storyboard */; };
+		4C280B3B1836FEEF002361BF /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B3A1836FEEF002361BF /* MasterViewController.m */; };
+		4C280B3E1836FEEF002361BF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B3D1836FEEF002361BF /* DetailViewController.m */; };
+		4C280B401836FEEF002361BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C280B3F1836FEEF002361BF /* Images.xcassets */; };
+		4C280B471836FEEF002361BF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B461836FEEF002361BF /* XCTest.framework */; };
+		4C280B481836FEEF002361BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B241836FEEF002361BF /* Foundation.framework */; };
+		4C280B491836FEEF002361BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B281836FEEF002361BF /* UIKit.framework */; };
+		4C280B511836FEEF002361BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C280B4F1836FEEF002361BF /* InfoPlist.strings */; };
+		4C280B531836FEEF002361BF /* YefchatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B521836FEEF002361BF /* YefchatTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4C280B4A1836FEEF002361BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C280B191836FEEF002361BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C280B201836FEEF002361BF;
+			remoteInfo = Yefchat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4C280B211836FEEF002361BF /* Yefchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yefchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C280B241836FEEF002361BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C280B261836FEEF002361BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4C280B281836FEEF002361BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4C280B2C1836FEEF002361BF /* Yefchat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Yefchat-Info.plist"; sourceTree = "<group>"; };
+		4C280B2E1836FEEF002361BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4C280B301836FEEF002361BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4C280B321836FEEF002361BF /* Yefchat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Yefchat-Prefix.pch"; sourceTree = "<group>"; };
+		4C280B331836FEEF002361BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4C280B341836FEEF002361BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4C280B371836FEEF002361BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C280B391836FEEF002361BF /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		4C280B3A1836FEEF002361BF /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		4C280B3C1836FEEF002361BF /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4C280B3D1836FEEF002361BF /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4C280B3F1836FEEF002361BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4C280B451836FEEF002361BF /* YefchatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YefchatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C280B461836FEEF002361BF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4C280B4E1836FEEF002361BF /* YefchatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YefchatTests-Info.plist"; sourceTree = "<group>"; };
+		4C280B501836FEEF002361BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4C280B521836FEEF002361BF /* YefchatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YefchatTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C280B1E1836FEEF002361BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C280B271836FEEF002361BF /* CoreGraphics.framework in Frameworks */,
+				4C280B291836FEEF002361BF /* UIKit.framework in Frameworks */,
+				4C280B251836FEEF002361BF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C280B421836FEEF002361BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C280B471836FEEF002361BF /* XCTest.framework in Frameworks */,
+				4C280B491836FEEF002361BF /* UIKit.framework in Frameworks */,
+				4C280B481836FEEF002361BF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C280B181836FEEF002361BF = {
+			isa = PBXGroup;
+			children = (
+				4C280B2A1836FEEF002361BF /* Yefchat */,
+				4C280B4C1836FEEF002361BF /* YefchatTests */,
+				4C280B231836FEEF002361BF /* Frameworks */,
+				4C280B221836FEEF002361BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C280B221836FEEF002361BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C280B211836FEEF002361BF /* Yefchat.app */,
+				4C280B451836FEEF002361BF /* YefchatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C280B231836FEEF002361BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C280B241836FEEF002361BF /* Foundation.framework */,
+				4C280B261836FEEF002361BF /* CoreGraphics.framework */,
+				4C280B281836FEEF002361BF /* UIKit.framework */,
+				4C280B461836FEEF002361BF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C280B2A1836FEEF002361BF /* Yefchat */ = {
+			isa = PBXGroup;
+			children = (
+				4C280B331836FEEF002361BF /* AppDelegate.h */,
+				4C280B341836FEEF002361BF /* AppDelegate.m */,
+				4C280B361836FEEF002361BF /* Main.storyboard */,
+				4C280B391836FEEF002361BF /* MasterViewController.h */,
+				4C280B3A1836FEEF002361BF /* MasterViewController.m */,
+				4C280B3C1836FEEF002361BF /* DetailViewController.h */,
+				4C280B3D1836FEEF002361BF /* DetailViewController.m */,
+				4C280B3F1836FEEF002361BF /* Images.xcassets */,
+				4C280B2B1836FEEF002361BF /* Supporting Files */,
+			);
+			path = Yefchat;
+			sourceTree = "<group>";
+		};
+		4C280B2B1836FEEF002361BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C280B2C1836FEEF002361BF /* Yefchat-Info.plist */,
+				4C280B2D1836FEEF002361BF /* InfoPlist.strings */,
+				4C280B301836FEEF002361BF /* main.m */,
+				4C280B321836FEEF002361BF /* Yefchat-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C280B4C1836FEEF002361BF /* YefchatTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C280B521836FEEF002361BF /* YefchatTests.m */,
+				4C280B4D1836FEEF002361BF /* Supporting Files */,
+			);
+			path = YefchatTests;
+			sourceTree = "<group>";
+		};
+		4C280B4D1836FEEF002361BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C280B4E1836FEEF002361BF /* YefchatTests-Info.plist */,
+				4C280B4F1836FEEF002361BF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C280B201836FEEF002361BF /* Yefchat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C280B561836FEEF002361BF /* Build configuration list for PBXNativeTarget "Yefchat" */;
+			buildPhases = (
+				4C280B1D1836FEEF002361BF /* Sources */,
+				4C280B1E1836FEEF002361BF /* Frameworks */,
+				4C280B1F1836FEEF002361BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yefchat;
+			productName = Yefchat;
+			productReference = 4C280B211836FEEF002361BF /* Yefchat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4C280B441836FEEF002361BF /* YefchatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C280B591836FEEF002361BF /* Build configuration list for PBXNativeTarget "YefchatTests" */;
+			buildPhases = (
+				4C280B411836FEEF002361BF /* Sources */,
+				4C280B421836FEEF002361BF /* Frameworks */,
+				4C280B431836FEEF002361BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C280B4B1836FEEF002361BF /* PBXTargetDependency */,
+			);
+			name = YefchatTests;
+			productName = YefchatTests;
+			productReference = 4C280B451836FEEF002361BF /* YefchatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C280B191836FEEF002361BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Watchsend;
+				TargetAttributes = {
+					4C280B441836FEEF002361BF = {
+						TestTargetID = 4C280B201836FEEF002361BF;
+					};
+				};
+			};
+			buildConfigurationList = 4C280B1C1836FEEF002361BF /* Build configuration list for PBXProject "Yefchat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4C280B181836FEEF002361BF;
+			productRefGroup = 4C280B221836FEEF002361BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C280B201836FEEF002361BF /* Yefchat */,
+				4C280B441836FEEF002361BF /* YefchatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C280B1F1836FEEF002361BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C280B401836FEEF002361BF /* Images.xcassets in Resources */,
+				4C280B2F1836FEEF002361BF /* InfoPlist.strings in Resources */,
+				4C280B381836FEEF002361BF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C280B431836FEEF002361BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C280B511836FEEF002361BF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C280B1D1836FEEF002361BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C280B351836FEEF002361BF /* AppDelegate.m in Sources */,
+				4C280B3B1836FEEF002361BF /* MasterViewController.m in Sources */,
+				4C280B311836FEEF002361BF /* main.m in Sources */,
+				4C280B3E1836FEEF002361BF /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C280B411836FEEF002361BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C280B531836FEEF002361BF /* YefchatTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C280B4B1836FEEF002361BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C280B201836FEEF002361BF /* Yefchat */;
+			targetProxy = 4C280B4A1836FEEF002361BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4C280B2D1836FEEF002361BF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C280B2E1836FEEF002361BF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4C280B361836FEEF002361BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C280B371836FEEF002361BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4C280B4F1836FEEF002361BF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C280B501836FEEF002361BF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C280B541836FEEF002361BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4C280B551836FEEF002361BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C280B571836FEEF002361BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Yefchat/Yefchat-Prefix.pch";
+				INFOPLIST_FILE = "Yefchat/Yefchat-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4C280B581836FEEF002361BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Yefchat/Yefchat-Prefix.pch";
+				INFOPLIST_FILE = "Yefchat/Yefchat-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4C280B5A1836FEEF002361BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Yefchat.app/Yefchat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Yefchat/Yefchat-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "YefchatTests/YefchatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4C280B5B1836FEEF002361BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Yefchat.app/Yefchat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Yefchat/Yefchat-Prefix.pch";
+				INFOPLIST_FILE = "YefchatTests/YefchatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C280B1C1836FEEF002361BF /* Build configuration list for PBXProject "Yefchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C280B541836FEEF002361BF /* Debug */,
+				4C280B551836FEEF002361BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C280B561836FEEF002361BF /* Build configuration list for PBXNativeTarget "Yefchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C280B571836FEEF002361BF /* Debug */,
+				4C280B581836FEEF002361BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4C280B591836FEEF002361BF /* Build configuration list for PBXNativeTarget "YefchatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C280B5A1836FEEF002361BF /* Debug */,
+				4C280B5B1836FEEF002361BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C280B191836FEEF002361BF /* Project object */;
+}
