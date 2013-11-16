@@ -184,16 +184,16 @@
     data[@"req_token"] = [self hashFirst:_authToken second:[NSString stringWithFormat:@"%li", ts]];
     data[@"version"] = @"6.0.0";
     
+    // NSData *iv = [@"\x01\x02\x03\x04\x05\x06\x07\x08\x09\x10\x11\x12\x13\x14\x15\x16" dataUsingEncoding:NSASCIIStringEncoding];
+
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
     // generalize the fucking serializer so JSON don't fail like a bitch.
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager POST:[URL stringByAppendingString:@"/blob"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"RESPONSE: %@", responseObject);
-        
-        callback([responseObject decryptedAES256DataUsingKey:BLOB_ENC error:nil]);
-        
-        // callback([NSData data]);
+        callback([responseObject decryptedDataUsingAlgorithm:kCCAlgorithmAES key:BLOB_ENC options:kCCOptionECBMode error:nil]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
