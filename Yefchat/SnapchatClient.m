@@ -9,6 +9,7 @@
 #import "SnapchatClient.h"
 #import "Snap.h"
 #include <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonCryptor.h>
 #include "AFHTTPRequestOperationManager.h"
 
 #define SECRET @"iEk21fuwZApXlz93750dmW22pw389dPwOk"
@@ -207,8 +208,13 @@
     params[@"version"] = @"6.0.0";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:[URL stringByAppendingString:@"/upload"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+    // NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
+    [manager POST:[URL stringByAppendingString:@"/upload"] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        // passing file in correctly
+        // TODO: need to encrypt it
+        [formData appendPartWithFileData:data name:@"data" fileName:@"data" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@", responseObject);
         
         long sts = (long)([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
         
@@ -228,7 +234,7 @@
             NSLog(@"Error: %@", error);
         }];
         
-        
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
