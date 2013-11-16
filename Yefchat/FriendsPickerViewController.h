@@ -13,7 +13,7 @@
 @end
 
 @interface FriendsPickerViewController : UITableViewController {
-    NSMutableArray *deselectedRows;
+    NSMutableDictionary *deselectedRows;
 }
 @property(weak) id delegate;
 @end

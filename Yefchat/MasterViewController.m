@@ -26,6 +26,20 @@
     
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+    
+    UIAlertView *login = [[UIAlertView alloc] initWithTitle:@"Login" message:@"Yo." delegate:self cancelButtonTitle:@"Nevermind" otherButtonTitles:@"Wooo!", nil];
+    login.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    [login show];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [SVProgressHUD showWithStatus:@"Logging in"];
+    [[SnapchatClient sharedClient] startLoginWithUsername:[alertView textFieldAtIndex:0].text password:[alertView textFieldAtIndex:1].text callback:^{
+        [SVProgressHUD showSuccessWithStatus:@"Logged in!"];
+        
+        [self.refreshControl beginRefreshing];
+        [self refresh];
+    }];
 }
 
 -(void)refresh {

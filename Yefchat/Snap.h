@@ -13,5 +13,6 @@
 @property NSDate *timestamp;
 @property BOOL isVideo;
 @property NSData *data;
+@property NSString *mediaID;
 
 @end

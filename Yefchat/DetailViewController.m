@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "Snap.h"
+#import "SnapchatClient.h"
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -32,7 +33,14 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        [[SnapchatClient sharedClient] getMediaForSnap:self.detailItem callback:^(NSData *snap) {
+            // we have data
+            UIImage *image = [UIImage imageWithData:snap];
+            UIImageView *iview = [[UIImageView alloc] initWithFrame:self.view.bounds];
+            iview.image = image;
+            [self.view addSubview:iview];
+        }];
+//        self.detailDescriptionLabel.text = [self.detailItem description];
     }
 }
 

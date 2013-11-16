@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class Snap;
 @interface SnapchatClient : NSObject{
   NSString *_username;
   NSString *_authToken;
@@ -21,5 +21,7 @@
 -(void)startLoginWithUsername:(NSString *)username password:(NSString *)password callback:(void (^)(void))callback;
 -(void)startRefreshWithCallback:(void (^)(void))callback;
 -(void)sendData:(NSData *)data toRecipients:(NSArray *)recipients isVideo:(BOOL)video callback:(void (^)(void))callback;
+
+-(void)getMediaForSnap:(Snap *)snap callback:(void(^)(NSData *))callback;
 
 @end

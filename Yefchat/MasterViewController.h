@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FriendsPickerViewController.h"
 
-@interface MasterViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, FriendsPickerViewControllerDelegate> {
+@interface MasterViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, FriendsPickerViewControllerDelegate, UIAlertViewDelegate> {
     UIImagePickerController *picker;
     
     NSData *data;

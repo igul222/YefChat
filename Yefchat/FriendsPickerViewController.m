@@ -17,7 +17,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
     self.title = @"Send to...";
-    deselectedRows = [[NSMutableArray alloc] init];
+    deselectedRows = [[NSMutableDictionary alloc] init];
 }
 
 -(void)done {
@@ -25,7 +25,7 @@
     
     for(int i=0; i<[self.tableView numberOfRowsInSection:0]; i++) {
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        if(!( (i < deselectedRows.count) && [deselectedRows objectAtIndex:i] ))
+        if(![deselectedRows objectForKey:@(i)])
             friends = [friends arrayByAddingObject:cell.textLabel.text];
     }
     
@@ -51,18 +51,18 @@
     }
     
     cell.textLabel.text = [SnapchatClient sharedClient].friends[indexPath.row];
-    cell.accessoryType = ((indexPath.row < deselectedRows.count) && [deselectedRows objectAtIndex:indexPath.row] ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark);
+    cell.accessoryType = ([deselectedRows objectForKey:@(indexPath.row)] ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark);
 
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if((indexPath.row < deselectedRows.count) && [deselectedRows objectAtIndex:indexPath.row]) {
-        [deselectedRows removeObjectAtIndex:indexPath.row];
+    if([deselectedRows objectForKey:@(indexPath.row)]) {
+        [deselectedRows removeObjectForKey:@(indexPath.row)];
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        [deselectedRows insertObject:@(TRUE) atIndex:indexPath.row];
+        [deselectedRows setObject:@(TRUE) forKey:@(indexPath.row)];
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
