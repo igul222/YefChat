@@ -23,9 +23,11 @@
 -(void)done {
     NSArray *friends = @[];
     
-    for(int i=0; i<[self.tableView numberOfRowsInSection:0]; i++) {
+    for(int i = 0; i < [self.tableView numberOfRowsInSection:0]; i++) {
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        if(![deselectedRows objectForKey:@(i)])
+        // Some friend cells are empty for some reason
+        // TODO: before adding friends to _friends, check if they are not nil
+        if(![deselectedRows objectForKey:@(i)] && cell.textLabel.text)
             friends = [friends arrayByAddingObject:cell.textLabel.text];
     }
     
