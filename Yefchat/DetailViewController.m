@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "Snap.h"
 
 @interface DetailViewController ()
 - (void)configureView;

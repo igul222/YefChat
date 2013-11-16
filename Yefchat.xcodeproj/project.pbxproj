@@ -22,6 +22,9 @@
 		4C280B491836FEEF002361BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B281836FEEF002361BF /* UIKit.framework */; };
 		4C280B511836FEEF002361BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C280B4F1836FEEF002361BF /* InfoPlist.strings */; };
 		4C280B531836FEEF002361BF /* YefchatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B521836FEEF002361BF /* YefchatTests.m */; };
+		4C280B5E1836FF3F002361BF /* SnapchatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B5D1836FF3F002361BF /* SnapchatClient.m */; };
+		4C280B6118370611002361BF /* Snap.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B6018370611002361BF /* Snap.m */; };
+		4C280B6418372A34002361BF /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B6318372A34002361BF /* FriendsPickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,12 @@
 		4C280B4E1836FEEF002361BF /* YefchatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YefchatTests-Info.plist"; sourceTree = "<group>"; };
 		4C280B501836FEEF002361BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C280B521836FEEF002361BF /* YefchatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YefchatTests.m; sourceTree = "<group>"; };
+		4C280B5C1836FF3F002361BF /* SnapchatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapchatClient.h; sourceTree = "<group>"; };
+		4C280B5D1836FF3F002361BF /* SnapchatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapchatClient.m; sourceTree = "<group>"; };
+		4C280B5F18370611002361BF /* Snap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snap.h; sourceTree = "<group>"; };
+		4C280B6018370611002361BF /* Snap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snap.m; sourceTree = "<group>"; };
+		4C280B6218372A34002361BF /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPickerViewController.h; sourceTree = "<group>"; };
+		4C280B6318372A34002361BF /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +129,16 @@
 				4C280B361836FEEF002361BF /* Main.storyboard */,
 				4C280B391836FEEF002361BF /* MasterViewController.h */,
 				4C280B3A1836FEEF002361BF /* MasterViewController.m */,
+				4C280B6218372A34002361BF /* FriendsPickerViewController.h */,
+				4C280B6318372A34002361BF /* FriendsPickerViewController.m */,
 				4C280B3C1836FEEF002361BF /* DetailViewController.h */,
 				4C280B3D1836FEEF002361BF /* DetailViewController.m */,
 				4C280B3F1836FEEF002361BF /* Images.xcassets */,
 				4C280B2B1836FEEF002361BF /* Supporting Files */,
+				4C280B5C1836FF3F002361BF /* SnapchatClient.h */,
+				4C280B5D1836FF3F002361BF /* SnapchatClient.m */,
+				4C280B5F18370611002361BF /* Snap.h */,
+				4C280B6018370611002361BF /* Snap.m */,
 			);
 			path = Yefchat;
 			sourceTree = "<group>";
@@ -254,8 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C280B5E1836FF3F002361BF /* SnapchatClient.m in Sources */,
 				4C280B351836FEEF002361BF /* AppDelegate.m in Sources */,
 				4C280B3B1836FEEF002361BF /* MasterViewController.m in Sources */,
+				4C280B6118370611002361BF /* Snap.m in Sources */,
+				4C280B6418372A34002361BF /* FriendsPickerViewController.m in Sources */,
 				4C280B311836FEEF002361BF /* main.m in Sources */,
 				4C280B3E1836FEEF002361BF /* DetailViewController.m in Sources */,
 			);
