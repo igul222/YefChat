@@ -10,6 +10,8 @@
 #import "DetailViewController.h"
 #import "SnapchatClient.h"
 #import "Snap.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "SVProgressHUD.h"
 
 @implementation MasterViewController
 
@@ -17,9 +19,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(add)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -29,9 +29,11 @@
 }
 
 -(void)refresh {
+    [SVProgressHUD showWithStatus:@"Refreshing"];
     [[SnapchatClient sharedClient] startRefreshWithCallback:^{
         [self.refreshControl endRefreshing];
         [self.tableView reloadData];
+        [SVProgressHUD showSuccessWithStatus:@"Refreshed!"];
     }];
 }
 
@@ -45,6 +47,7 @@
         // Capture
         picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType: UIImagePickerControllerSourceTypeCamera];
         picker.delegate = self;
         [self presentViewController:picker animated:YES completion:nil];
     } else if(buttonIndex==1) {
@@ -58,15 +61,26 @@
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    NSLog(@"info: %@", info);
+    isVideo = ![info[UIImagePickerControllerMediaType] isEqualToString:@"public.image"];
+    if(isVideo) {
+        data = [NSData dataWithContentsOfFile:info[UIImagePickerControllerMediaURL]];
+    } else {
+        data = UIImageJPEGRepresentation(info[UIImagePickerControllerOriginalImage], 0.5);
+    }
+    
     [self dismissViewControllerAnimated:YES completion:^{
         FriendsPickerViewController *friendsPicker = [[FriendsPickerViewController alloc] initWithStyle:UITableViewStylePlain];
+        friendsPicker.delegate = self;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:friendsPicker];
         [self presentViewController:nav animated:YES completion:nil];
     }];
 }
 
 -(void)friendsPickerDidReturnWithFriends:(NSArray *)friends {
+    [SVProgressHUD showWithStatus:@"Sending"];
+    [[SnapchatClient sharedClient] sendData:data toRecipients:friends isVideo:isVideo callback:^{
+        [SVProgressHUD showSuccessWithStatus:@"Sent!"];
+    }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

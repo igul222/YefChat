@@ -39,6 +39,9 @@
 		6F9A496318376CC100A7B08A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496218376CC100A7B08A /* Security.framework */; };
 		6F9A496518376CC900A7B08A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496418376CC900A7B08A /* MobileCoreServices.framework */; };
 		6F9A496718376CD400A7B08A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9A496618376CD400A7B08A /* libicucore.dylib */; };
+		4C280B66183771F8002361BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C280B65183771F8002361BF /* QuartzCore.framework */; };
+		4C280B6A1837720F002361BF /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C280B671837720F002361BF /* SVProgressHUD.bundle */; };
+		4C280B6B1837720F002361BF /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C280B691837720F002361BF /* SVProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,10 @@
 		6F9A496218376CC100A7B08A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6F9A496418376CC900A7B08A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6F9A496618376CD400A7B08A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		4C280B65183771F8002361BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4C280B671837720F002361BF /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		4C280B681837720F002361BF /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		4C280B691837720F002361BF /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +123,7 @@
 				6F9A496318376CC100A7B08A /* Security.framework in Frameworks */,
 				6F9A496118376CBB00A7B08A /* CoreFoundation.framework in Frameworks */,
 				6F9A495F18376C9800A7B08A /* CFNetwork.framework in Frameworks */,
+				4C280B66183771F8002361BF /* QuartzCore.framework in Frameworks */,
 				4C280B271836FEEF002361BF /* CoreGraphics.framework in Frameworks */,
 				4C280B291836FEEF002361BF /* UIKit.framework in Frameworks */,
 				4C280B251836FEEF002361BF /* Foundation.framework in Frameworks */,
@@ -163,6 +171,7 @@
 				6F9A496018376CBB00A7B08A /* CoreFoundation.framework */,
 				6F9A495E18376C9800A7B08A /* CFNetwork.framework */,
 				6F9A494018376C5200A7B08A /* libcommonCrypto.dylib */,
+				4C280B65183771F8002361BF /* QuartzCore.framework */,
 				4C280B241836FEEF002361BF /* Foundation.framework */,
 				4C280B261836FEEF002361BF /* CoreGraphics.framework */,
 				4C280B281836FEEF002361BF /* UIKit.framework */,
@@ -174,6 +183,9 @@
 		4C280B2A1836FEEF002361BF /* Yefchat */ = {
 			isa = PBXGroup;
 			children = (
+				4C280B671837720F002361BF /* SVProgressHUD.bundle */,
+				4C280B681837720F002361BF /* SVProgressHUD.h */,
+				4C280B691837720F002361BF /* SVProgressHUD.m */,
 				4C280B331836FEEF002361BF /* AppDelegate.h */,
 				4C280B341836FEEF002361BF /* AppDelegate.m */,
 				4C280B361836FEEF002361BF /* Main.storyboard */,
@@ -320,6 +332,7 @@
 				4C280B401836FEEF002361BF /* Images.xcassets in Resources */,
 				4C280B2F1836FEEF002361BF /* InfoPlist.strings in Resources */,
 				4C280B381836FEEF002361BF /* Main.storyboard in Resources */,
+				4C280B6A1837720F002361BF /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +353,7 @@
 			files = (
 				6F9A495A18376C8B00A7B08A /* AFURLConnectionOperation.m in Sources */,
 				4C280B5E1836FF3F002361BF /* SnapchatClient.m in Sources */,
+				4C280B6B1837720F002361BF /* SVProgressHUD.m in Sources */,
 				4C280B351836FEEF002361BF /* AppDelegate.m in Sources */,
 				4C280B3B1836FEEF002361BF /* MasterViewController.m in Sources */,
 				6F9A495C18376C8B00A7B08A /* AFURLResponseSerialization.m in Sources */,
