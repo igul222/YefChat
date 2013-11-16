@@ -12,6 +12,8 @@
 -(void)friendsPickerDidReturnWithFriends:(NSArray *)friends;
 @end
 
-@interface FriendsPickerViewController : UITableViewController
+@interface FriendsPickerViewController : UITableViewController {
+    NSMutableArray *deselectedRows;
+}
 @property(weak) id delegate;
 @end

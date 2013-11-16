@@ -11,5 +11,8 @@
 
 @interface MasterViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, FriendsPickerViewControllerDelegate> {
     UIImagePickerController *picker;
+    
+    NSData *data;
+    BOOL isVideo;
 }
 @end

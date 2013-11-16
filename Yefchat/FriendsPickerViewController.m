@@ -17,6 +17,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
     self.title = @"Send to...";
+    deselectedRows = [[NSMutableArray alloc] init];
 }
 
 -(void)done {
@@ -24,7 +25,7 @@
     
     for(int i=0; i<[self.tableView numberOfRowsInSection:0]; i++) {
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        if([cell accessoryType] == UITableViewCellAccessoryCheckmark)
+        if(!( (i < deselectedRows.count) && [deselectedRows objectAtIndex:i] ))
             friends = [friends arrayByAddingObject:cell.textLabel.text];
     }
     
@@ -45,20 +46,25 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(!cell)
+    if(!cell) {
         cell = [[UITableViewCell alloc] init];
-
-    cell.textLabel.text = [SnapchatClient sharedClient].friends[indexPath.row];
+    }
     
+    cell.textLabel.text = [SnapchatClient sharedClient].friends[indexPath.row];
+    cell.accessoryType = ((indexPath.row < deselectedRows.count) && [deselectedRows objectAtIndex:indexPath.row] ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark);
+
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if(cell.accessoryType == UITableViewCellAccessoryCheckmark)
-        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
-    else
-        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    if((indexPath.row < deselectedRows.count) && [deselectedRows objectAtIndex:indexPath.row]) {
+        [deselectedRows removeObjectAtIndex:indexPath.row];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        [deselectedRows insertObject:@(TRUE) atIndex:indexPath.row];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
