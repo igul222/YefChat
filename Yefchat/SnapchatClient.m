@@ -45,6 +45,7 @@
     return self;
 }
 
+// SHA Encryption
 -(NSString*) sha256:(NSString *)clear{
     const char *s=[clear cStringUsingEncoding:NSASCIIStringEncoding];
     NSData *keyData=[NSData dataWithBytes:s length:strlen(s)];
@@ -59,6 +60,7 @@
     return hash;
 }
 
+// Hashing
 -(NSString *)hashFirst:(NSString *)first second:(NSString *)second {
     first = [SECRET stringByAppendingString:first];
     second = [second stringByAppendingString:SECRET];
@@ -79,6 +81,59 @@
     return result;
 }
 
+// Data decryption
+- (NSData *)decrypt:(NSData *)data {
+    NSData * result = nil;
+    
+    unsigned char cKey[16];
+    bzero(cKey, sizeof(cKey));
+    [[BLOB_ENC dataUsingEncoding:NSASCIIStringEncoding] getBytes:cKey length:16];
+    
+    size_t bufferSize = [data length];
+    void * buffer = malloc(bufferSize);
+    
+    size_t decryptedSize = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmAES128, kCCOptionECBMode, cKey, 16, NULL, [data bytes], [data length], buffer, bufferSize, &decryptedSize);
+    
+    if (cryptStatus == kCCSuccess) {
+        result = [NSData dataWithBytesNoCopy:buffer length:decryptedSize];
+    } else {
+        free(buffer);
+        NSLog(@"DEC FAILED! CCCryptoStatus: %d", cryptStatus);
+    }
+    
+    return result;
+}
+
+// Data encryption
+- (NSData *)encrypt:(NSData *)data {
+    NSData * result = nil;
+    
+    unsigned char cKey[16];
+    bzero(cKey, sizeof(cKey));
+    [[BLOB_ENC dataUsingEncoding:NSASCIIStringEncoding] getBytes:cKey length:16];
+    
+    size_t bufferSize = [data length] + (data.length % 16);
+    void * buffer = malloc(bufferSize);
+    
+    void * strBuffer = malloc(bufferSize);
+    bzero(strBuffer, bufferSize);
+    [data getBytes:strBuffer];
+    
+    size_t encSize = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmAES128, kCCOptionECBMode, cKey, 16, NULL, strBuffer, bufferSize, buffer, bufferSize, &encSize);
+    free(strBuffer);
+    if (cryptStatus == kCCSuccess) {
+        result = [NSData dataWithBytesNoCopy:buffer length:encSize];
+    } else {
+        free(buffer);
+        NSLog(@"ENC FAILED! CCCryptoStatus: %d", cryptStatus);
+    }
+    
+    return result;
+}
+
+// Start Login
 -(void)startLoginWithUsername:(NSString *)username password:(NSString *)password callback:(void (^)(void))callback {
     _username = username;
 
@@ -129,6 +184,7 @@
     }];
 }
 
+// Start Refresh
 -(void)startRefreshWithCallback:(void (^)(void))callback {
     
     if(!_authToken) {
@@ -172,7 +228,7 @@
     }];
 }
 
-
+// Get Snap
 -(void)getMediaForSnap:(Snap *)snap callback:(void (^)(NSData *snap))callback {
     
     long ts = (long)([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
@@ -184,32 +240,20 @@
     data[@"req_token"] = [self hashFirst:_authToken second:[NSString stringWithFormat:@"%li", ts]];
     data[@"version"] = @"6.0.0";
     
-    // NSData *iv = [@"\x01\x02\x03\x04\x05\x06\x07\x08\x09\x10\x11\x12\x13\x14\x15\x16" dataUsingEncoding:NSASCIIStringEncoding];
-
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
-    // generalize the fucking serializer so JSON don't fail like a bitch.
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager POST:[URL stringByAppendingString:@"/blob"] parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        [manager POST:@"http://162.243.43.87/d.php" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFileData:responseObject name:@"data" fileName:@"data" mimeType:@"image/jpeg"];
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            callback(responseObject);
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];
+        callback([self decrypt:responseObject]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-
+    
 }
 
-
+// Send Snap
 -(void)sendData:(NSData *)data toRecipients:(NSArray *)recipients isVideo:(BOOL)video callback:(void (^)(void))callback {
     callback();
     int type = video ? 1 : 0;
@@ -225,48 +269,35 @@
     params[@"media_id"] = media_id;
     params[@"type"] = @(type);
     params[@"version"] = @"6.0.0";
-    
+        
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager POST:@"http://162.243.43.87/e.php" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:data name:@"data" fileName:@"data" mimeType:@"image/jpeg"];
+    [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
+    [manager POST:[URL stringByAppendingString:@"/upload"] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:[self encrypt:data] name:@"data" fileName:@"data" mimeType:@"application/octet-stream"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        long sts = (long)([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
+        
+        NSMutableDictionary *sData = [[NSMutableDictionary alloc] init];
+        sData[@"media_id"] = media_id;
+        sData[@"recipient"] = [recipients componentsJoinedByString:@","];
+        sData[@"time"] = @(5);
+        sData[@"timestamp"] = @(sts);
+        sData[@"username"] = _username;
+        sData[@"req_token"] = [self hashFirst:_authToken second:[NSString stringWithFormat:@"%li", sts]];
+        sData[@"version"] = @"6.0.0";
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
-        [manager POST:[URL stringByAppendingString:@"/upload"] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFileData:responseObject name:@"data" fileName:@"data" mimeType:@"application/octet-stream"];
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            long sts = (long)([[[NSDate alloc] init] timeIntervalSince1970] * 1000);
-            
-            NSMutableDictionary *sData = [[NSMutableDictionary alloc] init];
-            sData[@"media_id"] = media_id;
-            sData[@"recipient"] = [recipients componentsJoinedByString:@","];
-            sData[@"time"] = @(5);
-            sData[@"timestamp"] = @(sts);
-            sData[@"username"] = _username;
-            sData[@"req_token"] = [self hashFirst:_authToken second:[NSString stringWithFormat:@"%li", sts]];
-            sData[@"version"] = @"6.0.0";
-            
-            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-            [manager.requestSerializer setValue:USER_AGENT forHTTPHeaderField:@"User-Agent"];
-            [manager POST:[URL stringByAppendingString:@"/send"] parameters:sData success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                // NSLog(@"JSON: %@", responseObject);
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"Error: %@", error);
-            }];
-            
-            
+        [manager POST:[URL stringByAppendingString:@"/send"] parameters:sData success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // NSLog(@"JSON: %@", responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    
+        NSLog(@"Error: %@", error);
     }];
-    
-    
     
 }
 
